@@ -1,0 +1,35 @@
+
+<div class="container">
+
+<mat-card>
+<mat-form-field>
+<input matInput class="form-control" type="search"  [(ngModel)]="searchquery" placeholder="search an image">
+</mat-form-field>
+
+<button mat-raised-button color="primary" (click)="searhImages(searchquery)" type="button" class="btn btn btn-xs success">Search Images</button>
+</mat-card>
+
+<br>
+
+ <masonry  [useImagesLoaded]="true">
+        <masonry-brick class="col-md-3 col-sm-6 col-xs-12 " *ngFor="let image of images">
+
+              <mat-card >
+                <img class="responsive-img" src="{{image.webformatURL}}" alt="">
+                <p>User:{{image.user}}</p>
+                <p>Tags:{{image.tags}}</p>
+                <p>Views:{{image.views}}</p>
+                <p>Likes:{{image.likes}}</p>
+                <p>Downloads:{{image.downloads}}</p>
+                <br>
+              </mat-card>
+       <br>
+        </masonry-brick>
+      </masonry>
+  </div>
+
+
+
+
+
+
